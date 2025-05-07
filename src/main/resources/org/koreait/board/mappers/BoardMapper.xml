@@ -8,7 +8,7 @@
         VALUES (#{poster}, #{subject}, #{content}, #{memberSeq})
     </insert>
     <update id="update">
-        UPDATE BOARD_DATA
+        UPDATE CONSOLE_BOARD
         <set>
             <if test="poster != null">
                 poster = #{poster},
