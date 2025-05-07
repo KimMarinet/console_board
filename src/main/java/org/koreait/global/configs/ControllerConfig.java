@@ -1,6 +1,7 @@
 package org.koreait.global.configs;
 
 import org.koreait.board.controllers.BoardController;
+import org.koreait.board.controllers.BoardNumber;
 import org.koreait.board.controllers.BoardWriteController;
 import org.koreait.board.services.BoardSaveService;
 import org.koreait.global.services.ServiceContainer;
@@ -68,6 +69,10 @@ public class ControllerConfig {
      */
     public BoardController boardController() {
         return new BoardController();
+    }
+
+    public BoardNumber boardNumber() {
+        return new BoardNumber();
     }
 
     public BoardWriteController boardWriteController(){
