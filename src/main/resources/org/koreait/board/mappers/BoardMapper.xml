@@ -4,11 +4,11 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.koreait.board.mappers.BoardMapper">
     <insert id="register" useGeneratedKeys="true" keyProperty="seq">
-        INSERT INTO noticeBoard (poster, subject, content, memberSeq)
+        INSERT INTO BOARD_DATA (poster, subject, content, memberSeq)
         VALUES (#{poster}, #{subject}, #{content}, #{memberSeq})
     </insert>
     <update id="update">
-        UPDATE noticeBoard
+        UPDATE CONSOLE_BOARD
         <set>
             <if test="poster != null">
                 poster = #{poster},
@@ -26,15 +26,15 @@
         </where>
     </update>
     <delete id="delete">
-        DELETE FROM noticeBoard WHERE seq=#{seq}
+        DELETE FROM BOARD_DATA WHERE seq=#{seq}
     </delete>
 
     <select id="get">
-        SELECT * FROM noticeBoard WHERE seq=#{seq}
+        SELECT * FROM BOARD_DATA WHERE seq=#{seq}
     </select>
 
     <select id="getList">
-        SELECT b.*, m.name, m.email FROM noticeBoard b
+        SELECT b.*, m.name, m.email FROM BOARD_DATA b
         LEFT JOIN member m ON b.memberSeq = m.seq
         <where>
             <if test="skey != null">
