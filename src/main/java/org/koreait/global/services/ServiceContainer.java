@@ -62,12 +62,8 @@ public class ServiceContainer {
                     Object bean = method.invoke(obj);
 
                     // 생성된 객체 컨테이너 저장공간에 저장
-                    Class<?>[] interfaces = bean.getClass().getInterfaces();
-                    if (interfaces.length > 0) {
-                        objects.put(interfaces[0], bean);
-                    } else {
-                        objects.put(bean.getClass(), bean);
-                    }
+                    objects.put(bean.getClass(), bean);
+
                 } // endfor
             } catch (Exception e) {
                 e.printStackTrace();
